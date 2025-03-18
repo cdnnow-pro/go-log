@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package log_test
 
 import (
