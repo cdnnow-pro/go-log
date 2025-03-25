@@ -34,7 +34,7 @@ func getTestData() (context.Context, *bytes.Buffer) {
 
 func getTestDataTextPlain() (context.Context, *bytes.Buffer) {
 	buf := &bytes.Buffer{}
-	l := NewLogger(DebugLevel, WithPlainText(false, buf))
+	l := NewLogger(DebugLevel, WithPlainText(buf))
 	return ToContext(context.Background(), l), buf
 }
 

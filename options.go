@@ -36,7 +36,7 @@ func WithOutput(w io.Writer) Option {
 //
 // Optionally the inner output writer could be specified as second argument.
 // Otherwise, the os.Stdout will be used.
-func WithPlainText(withTimestamp bool, w ...io.Writer) Option {
+func WithPlainText(w ...io.Writer) Option {
 	if len(w) == 0 {
 		w = []io.Writer{os.Stdout}
 	}
@@ -46,12 +46,37 @@ func WithPlainText(withTimestamp bool, w ...io.Writer) Option {
 		zerolog.CallerFieldName,
 		zerolog.MessageFieldName,
 	}
-	if withTimestamp {
-		partsOrder = append([]string{zerolog.TimestampFieldName}, partsOrder...)
+
+	writer := zerolog.NewConsoleWriter(func(writer *zerolog.ConsoleWriter) {
+		writer.PartsOrder = partsOrder
+		writer.Out = w[0]
+	})
+
+	return WithOutput(writer)
+}
+
+// WithPlainTextAndTimestamp creates an output writer with the plain text format instead of JSON.
+// Including timestamp in the specified format (or default format if empty string passed).
+//
+// Optionally the inner output writer could be specified as second argument.
+// Otherwise, the os.Stdout will be used.
+func WithPlainTextAndTimestamp(timeFormat string, w ...io.Writer) Option {
+	if len(w) == 0 {
+		w = []io.Writer{os.Stdout}
+	}
+
+	partsOrder := []string{
+		zerolog.TimestampFieldName,
+		zerolog.LevelFieldName,
+		zerolog.CallerFieldName,
+		zerolog.MessageFieldName,
 	}
 
 	writer := zerolog.NewConsoleWriter(func(writer *zerolog.ConsoleWriter) {
 		writer.PartsOrder = partsOrder
+		if timeFormat != "" {
+			writer.TimeFormat = timeFormat
+		}
 		writer.Out = w[0]
 	})
 
