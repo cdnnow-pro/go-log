@@ -6,7 +6,7 @@ import (
 	"context"
 	"testing"
 
-	. "github.com/cdnnow-pro/logger-go"
+	. "github.com/cdnnow-pro/go-log"
 	"github.com/stretchr/testify/assert"
 )
 

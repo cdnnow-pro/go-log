@@ -3,7 +3,7 @@
 package trace
 
 import (
-	"github.com/cdnnow-pro/tracer-go"
+	"github.com/cdnnow-pro/go-tracer"
 	"github.com/rs/zerolog"
 )
 

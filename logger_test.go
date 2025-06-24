@@ -9,7 +9,7 @@ import (
 	"errors"
 	"testing"
 
-	. "github.com/cdnnow-pro/logger-go"
+	. "github.com/cdnnow-pro/go-log"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 )

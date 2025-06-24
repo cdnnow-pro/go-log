@@ -3,7 +3,7 @@
 package metrics
 
 import (
-	"github.com/cdnnow-pro/metrics-go"
+	"github.com/cdnnow-pro/go-metrics"
 	"github.com/rs/zerolog"
 )
 

@@ -1,4 +1,4 @@
-module github.com/cdnnow-pro/logger-go
+module github.com/cdnnow-pro/go-log
 
 go 1.23.0
 

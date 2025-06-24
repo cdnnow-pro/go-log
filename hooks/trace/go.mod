@@ -1,9 +1,9 @@
-module github.com/cdnnow-pro/logger-go/hooks/trace
+module github.com/cdnnow-pro/go-log/hooks/trace
 
 go 1.23.0
 
 require (
-	github.com/cdnnow-pro/tracer-go v0.0.0-20250228092244-f438f0f5b83a
+	github.com/cdnnow-pro/go-tracer v0.0.0-20250624122824-edd5987a7227
 	github.com/rs/zerolog v1.33.0
 )
 

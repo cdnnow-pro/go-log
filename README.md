@@ -15,7 +15,7 @@ package main
 import (
 	"os"
 
-	"github.com/cdnnow-pro/logger-go"
+	"github.com/cdnnow-pro/go-log"
 	"google.golang.org/grpc/grpclog"
 )
 

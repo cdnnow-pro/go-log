@@ -1,9 +1,9 @@
-module github.com/cdnnow-pro/logger-go/hooks/metrics
+module github.com/cdnnow-pro/go-log/hooks/metrics
 
 go 1.23.0
 
 require (
-	github.com/cdnnow-pro/metrics-go v0.0.0-20250228094543-d73cd21c88ee
+	github.com/cdnnow-pro/go-metrics v0.0.0-20250624123623-550e8b5c123c
 	github.com/rs/zerolog v1.33.0
 )
 
