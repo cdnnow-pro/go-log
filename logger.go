@@ -107,6 +107,12 @@ func (l *Logger) Fatal(ctx context.Context, msg string, fields ...any) {
 	event.Msg(msg)
 }
 
+func (l *Logger) FatalError(ctx context.Context, err error, msg string, fields ...any) {
+	event := l.l.Fatal().Err(err)
+	event = withFieldsAndCaller(ctx, event, fields)
+	event.Msg(msg)
+}
+
 func (l *Logger) Force(ctx context.Context, msg string, fields ...any) {
 	l2 := l.l.Level(zerolog.InfoLevel)
 	event := l2.Info()
@@ -136,6 +142,10 @@ func Error(ctx context.Context, err error, msg string, fields ...any) {
 
 func Fatal(ctx context.Context, msg string, fields ...any) {
 	FromContext(ctx).Fatal(ctx, msg, fields...)
+}
+
+func FatalError(ctx context.Context, err error, msg string, fields ...any) {
+	FromContext(ctx).FatalError(ctx, err, msg, fields...)
 }
 
 func Force(ctx context.Context, msg string, fields ...any) {
